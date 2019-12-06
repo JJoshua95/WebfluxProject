@@ -1,0 +1,25 @@
+apply plugin: 'application'
+
+
+repositories {
+    mavenCentral()
+}
+
+run {
+    args = [
+            '--port=9090',
+            '--local-response-templating=com.github.tomakehurst.wiremock.extension.responsetemplating.ResponseTemplateTransformer',
+            '--container-threads=200',
+            '--jetty-acceptor-threads=50',
+            '--async-response-enabled',
+            '--async-response-threads=200',
+            '--max-request-journal-entries=10000',
+            '--root-dir=build/resources/main'
+    ]
+}
+
+mainClassName = "com.github.tomakehurst.wiremock.standalone.WireMockServerRunner"
+
+dependencies {
+    compile("com.github.tomakehurst:wiremock:2.23.2")
+}

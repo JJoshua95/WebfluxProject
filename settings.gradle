@@ -1,0 +1,5 @@
+rootProject.name = 'WebfluxProject'
+
+include 'webflux'
+include 'mocks'
+
